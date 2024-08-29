@@ -177,12 +177,22 @@ def detalhes_autor(autor_id):
         if request.method == 'POST':
             try:
                 cur = conexao.cursor()
-                sql = 'DELETE FROM autor WHERE id = %s'
-                cur.execute(sql, (autor_id,))
-                conexao.commit()
-                cur.close()
 
-                print('Autor deletado com sucesso!')
+                sql_checa_livro = 'SELECT COUNT(*) FROM livro WHERE autor_id = %s'
+                cur.execute(sql_checa_livro, (autor_id,))
+                livros_relacionados = cur.fetchone()[0]
+
+                if livros_relacionados > 0:
+                    print(f'Não é possível deletar autor com id {autor_id} porque existem livros relacionados')
+                else:
+
+                    cur = conexao.cursor()
+                    sql = 'DELETE FROM autor WHERE id = %s'
+                    cur.execute(sql, (autor_id,))
+                    conexao.commit()
+                    cur.close()
+
+                    print('Autor deletado com sucesso!')
 
                 return redirect(url_for('lista_autores'))
             
