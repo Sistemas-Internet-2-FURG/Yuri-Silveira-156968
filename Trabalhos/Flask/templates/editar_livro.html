@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Livro</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <header>
+        
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('home_page') }}">Home</a></li>
+                <li><a href="{{ url_for('lista_autores') }}">Autores</a></li>
+                <li><a href="{{ url_for('lista_livros') }}">Livros</a></li>
+                <li><a href="{{ url_for('cadastra_usuario') }}">Cadastrar Usuário</a></li>
+                <li><a href="{{ url_for('login') }}">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <h1>Editar Livro</h1>
+    <form action="{{ url_for('editar_livro', livro_id=livro[0]) }}" method="post">
+        <label for="titulo">Título:</label><br>
+        <input type="text" id="titulo" name="titulo" value="{{ livro[1] }}"><br><br>
+
+        <label for="ano">Ano</label><br>
+        <input type="date" id="ano" name="ano" value="{{ livro[4] }}"><br><br>
+
+        <label for="genero">Gênero</label><br>
+        <input type="text" id="genero" name="genero" value="{{ livro[2] }}"><br><br>
+
+        <label for="autor_id">ID do Autor</label><br>
+        <input type="number" id="autor_id" name="autor_id" value="{{ livro[3] }}"><br><br>
+
+        <button type="submit">Salvar Alterações</button>
+    </form>
+    <br>
+    <a href="{{ url_for('detalhes_livro', livro_id=livro[0]) }}">Voltar aos detalhes do livro</a>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Meu app{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styce.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Meu Aplicativo</h1>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('home_page') }}">Home</a></li>
+                <li><a href="{{ url_for('lista_autores') }}">Autores</a></li>
+                <li><a href="{{ url_for('lista_livros') }}">Livros</a></li>
+                <li><a href="{{ url_for('cadastra_usuario') }}">Cadastrar Usuário</a></li>
+                <li><a href="{{ url_for('login') }}">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+</body>
+</html>

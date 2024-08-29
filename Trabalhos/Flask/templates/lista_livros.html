@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Livros</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <header>
+        
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('home_page') }}">Home</a></li>
+                <li><a href="{{ url_for('lista_autores') }}">Autores</a></li>
+                <li><a href="{{ url_for('lista_livros') }}">Livros</a></li>
+                <li><a href="{{ url_for('cadastra_usuario') }}">Cadastrar Usuário</a></li>
+                <li><a href="{{ url_for('login') }}">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <h1>Lista de Livros</h1>
+    <ul>
+        {% for livro in livros %}
+        <li><a href="{{ url_for('detalhes_livro', livro_id=livro[0]) }}">{{ livro[1] }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

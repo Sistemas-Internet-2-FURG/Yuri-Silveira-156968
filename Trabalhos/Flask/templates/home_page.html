@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Home</title>
+</head>
+<body>
+    <header>
+        
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('home_page') }}">Home</a></li>
+                <li><a href="{{ url_for('lista_autores') }}">Autores</a></li>
+                <li><a href="{{ url_for('lista_livros') }}">Livros</a></li>
+                <li><a href="{{ url_for('cadastra_usuario') }}">Cadastrar Usuário</a></li>
+                <li><a href="{{ url_for('login') }}">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div>
+        <h2>Bem-Vindo ao sistema de gerenciamento de livros!</h2>
+        <p><a href="cadastra_livro">Cadastrar Livro</a></p>
+        <p><a href="cadastra_autor">Cadastrar Autor</a></p>
+    </div>
+
+
+
+</body>
+</html>

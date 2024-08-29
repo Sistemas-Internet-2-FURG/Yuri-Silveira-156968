@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Autor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <header>
+        
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('home_page') }}">Home</a></li>
+                <li><a href="{{ url_for('lista_autores') }}">Autores</a></li>
+                <li><a href="{{ url_for('lista_livros') }}">Livros</a></li>
+                <li><a href="{{ url_for('cadastra_usuario') }}">Cadastrar Usuário</a></li>
+                <li><a href="{{ url_for('login') }}">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <h1>Editar Autor</h1>
+    <form action="{{ url_for('editar_autor', autor_id=autor[0]) }}" method="post">
+        <label for="nome_autor">Nome</label><br>
+        <input type="text" id="nome_autor" name="nome_autor" value="{{ autor[1] }}"><br><br>
+
+        <label for="nacionalidade">Nacionalidade</label><br>
+        <input type="text" id="nacionalidade" name="nacionalidade" value="{{ autor[2] }}"><br><br>
+
+        <label for="data_nascimento">Data de Nascimento</label><br>
+        <input type="date" id="data_nascimento" name="data_nascimento" value="{{ autor[3] }}"><br><br>
+
+        <button type="submit">Salvar Alterações</button>
+    </form>
+    <br>
+    <a href="{{ url_for('detalhes_autor', autor_id=autor[0]) }}">Voltar aos detalhes do Autor</a>
+</body>
+</html>
